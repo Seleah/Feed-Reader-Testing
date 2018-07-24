@@ -97,9 +97,10 @@ $(function() {
 			loadFeed(0, done);
 		});
 
-		it('at least one entry', function() {
+		it('at least one entry', function(done) {
 			let entries = document.querySelectorAll('.entry');
 			expect(entries.length).not.toBe(0);
+			done();
 		});
 	});
 
