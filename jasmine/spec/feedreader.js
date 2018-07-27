@@ -104,19 +104,17 @@ $(function() {
 		/* Test that ensures when a new feed is loaded
 		 * by the loadFeed function that the content actually changes.
 		 */
-		let feed = $('.feed'),
+		let feed = document.querySelector('.feed'),
 			feedBefore,
 			feedAfter;
 
 		beforeEach(function(done) {
 			loadFeed(0, function() {
-				feedBefore = document.querySelectorAll('.entry');
-				done();
-			});
-
-			loadFeed(1, function(done) {
-				feedAfter = document.querySelectorAll('.entry');
-				done();
+				feedBefore = feed.innerHTML;
+				loadFeed(1, function() {
+					feedAfter = feed.innerHTML;
+					done();
+				});
 			});
 		});
 
