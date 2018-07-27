@@ -86,14 +86,15 @@ $(function() {
 		 * function is called and completes its work, there is at least
 		 * a single .entry element within the .feed container.
 		 */
+		let feed = document.querySelector('.feed');
+
 		beforeEach(function(done) {
 			loadFeed(0, done);
 		});
 
-		it('at least one entry', function(done) {
-			let entries = document.querySelectorAll('.entry');
+		it('at least one entry', function() {
+			let entries = feed.querySelectorAll('.entry');
 			expect(entries.length).not.toBe(0);
-			done();
 		});
 	});
 
